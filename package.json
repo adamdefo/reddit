@@ -1,7 +1,7 @@
 {
-  "name": "booking-app",
+  "name": "test-vue-app",
   "version": "1.0.0",
-  "description": "Booking project",
+  "description": "",
   "author": "Adam Defo",
   "private": true,
   "scripts": {
