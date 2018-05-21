@@ -2,16 +2,13 @@
 <div class="blog">
   <div class="title">
     <h1>{{ title }}</h1>
-    <div class="title__links">
-      <button @click="showForm">
-        <span>{{ btnAdd.txt }}</span>
-      </button>
-    </div>
+    <div class="title__links"></div>
   </div>
   <div class="blog__article-list">
     <ul>
-      <li v-for="item in kinoteka" :key="item.id">
-        <a @click.prevent="getFilm(item)"><span>{{ item.name }}</span></a>
+      <li v-for="item in posts" :key="item.data.id">
+        <a @click.prevent="readMore(item)"><span>{{ item.data.title }}</span></a>
+        <small>Author: <span>{{ item.data.author }}</span></small>
       </li>
     </ul>
   </div>
@@ -47,15 +44,15 @@ export default {
   name: 'Reddit',
   data: function () {
     return {
-      api: '../api/',
-      title: 'Кинотека',
+      api: 'http://www.reddit.com/r/redditdev.json?limit=50',
+      title: 'Reddit Posts',
       loading: false,
       btnAdd: {
         txt: 'Добавить фильм'
       },
       uploadFiles: [],
       cover: '',
-      kinoteka: [],
+      posts: [],
       kinotekaItem: {
         id: null,
         name: 'Новый фильм',
@@ -65,19 +62,20 @@ export default {
     }
   },
   methods: {
-    getFilms: function () {
+    getPosts: function () {
       let vm = this
       this.$http.get(this.api).then(function (response) {
-        let data = response.data
-        vm.kinoteka = data.list.slice()
+        let data = response.data.data
+        console.log(data.children)
+        vm.posts = data.children.slice()
         this.loading = true
       }, function (error) {
         console.log(error)
         this.loading = true
       })
     },
-    getFilm: function (film) {
-      this.kinotekaItem = Object.assign({}, film)
+    readMore: function (item) {
+      this.kinotekaItem = Object.assign({}, item)
       this.isShowForm = true
     },
     findFilmById: function (filmId) {
@@ -146,7 +144,7 @@ export default {
     }
   },
   created: function () {
-    this.getFilms()
+    this.getPosts()
   },
   computed: {
     isValid: function () {

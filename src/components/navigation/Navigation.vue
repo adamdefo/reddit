@@ -27,10 +27,6 @@ export default {
         {
           title: 'Главная',
           href: '/'
-        },
-        {
-          title: 'Кинотека',
-          href: '/kinoteka'
         }
       ]
     }
