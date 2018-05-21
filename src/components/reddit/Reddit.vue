@@ -44,7 +44,7 @@
 
 <script>
 export default {
-  name: 'Kinoteka',
+  name: 'Reddit',
   data: function () {
     return {
       api: '../api/',
@@ -156,66 +156,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.blog {
-  &__article-list {
-    & ul {
-      margin-left: 16px;
-    }
-  }
-  &__form {
-    width: 450px;
-  }
-}
-
-.title {
-  display: table;
-  padding: 2.5rem 0 1.5rem;
-  border-bottom: 1px solid #dedede;
-  margin-bottom: 1.5rem;
-  width: 100%;
-  & > h1 {
-    display: table-cell;
-    vertical-align: middle;
-    line-height: 1;
-    margin: 0;
-    width: 65%;
-  }
-  &__links {
-    display: table-cell;
-    vertical-align: middle;
-    font-size: 1.3rem;
-    text-align: right;
-    width: 35%;
-    & > a {
-      margin-right: 1rem;
-    }
-  }
-}
-
-.list {
-  & > li {
-    font-size: 1.5rem;
-    margin: 1.5rem 0;
-  }
-  & b {
-    font-weight: bold;
-  }
-}
-
-.loading {
-  text-align: center;
-  font-size: 1.3rem;
-}
-
-.dropbox {
-  position: relative;
-  &__image {
-    & img {
-      display: inline-block;
-      width: 30%;
-      height: auto;
-    }
-  }
-}
-</style>
+<style lang="scss" src="./styles.scss" scoped></style>

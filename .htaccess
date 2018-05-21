@@ -2,16 +2,3 @@ AddDefaultCharset utf-8
 Options +FollowSymLinks
 RewriteEngine On
 RewriteBase /
-
-#BRO Admin Panel
-#RewriteRule ^bro\/?$ bro/index.php [L]
-#RewriteRule ^bro/views\/?$ bro/views/bro.php
-
-#RewriteCond %{HTTP_HOST} ^wobrow\.ru$ [NC]
-#RewriteRule ^(.*)$ http://www.wobrow.ru/$1 [R=301,L]
-
-#RewriteRule ^([a-zA-Z_\-]+)\/?$ index.php?view=$1
-
-#RewriteRule ^catalog\/?$ index.php?view=catalog
-#RewriteRule ^catalog\/([0-9]+)\/?$ index.php?view=catalog&category=$1
-#RewriteRule ^catalog\/([0-9]+)\/([a-zA-Z0-9_\-]+)\/?$ index.php?view=catalog&category=$1&item=$2
