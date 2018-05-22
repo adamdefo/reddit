@@ -1,43 +1,4 @@
-<template>
-<div class="blog">
-  <div class="title">
-    <h1>{{ title }}</h1>
-    <div class="title__links"></div>
-  </div>
-  <div class="blog__article-list">
-    <ul>
-      <li v-for="item in posts" :key="item.data.id">
-        <a @click.prevent="readMore(item)"><span>{{ item.data.title }}</span></a>
-        <small>Author: <span>{{ item.data.author }}</span></small>
-      </li>
-    </ul>
-  </div>
-  <div v-if="isShowForm" class="blog__form">
-    <form class="form" method="post" @submit.prevent="save" enctype="multipart/form-data">
-      <div class="dropbox">
-        <div class="dropbox__image"><img :src="cover" /></div>
-        <input class="dropbox__input" type="file" name="uploader" accept="image/*" multiple @change="changeUploader" />
-      </div>
-      <div class="form__title">{{ kinotekaItem.name }}</div>
-      <div class="form__group">
-        <div class="form__group-item">
-          <label class="form__label">Название</label>
-          <input class="form__input" type="text" v-model="kinotekaItem.name" />
-        </div>
-      </div>
-      <div class="form__group">
-        <div class="form__group-item">
-          <label class="form__label">Описание</label>
-          <textarea class="form__input form__input_txt" type="text" v-model="kinotekaItem.content"></textarea>
-        </div>
-      </div>
-      <div class="form__group form__group_btn">
-        <button class="btn" type="submit" :disabled="!isValid">Сохранить</button>
-      </div>
-    </form>
-  </div>
-</div>
-</template>
+<template src="./Reddit.tmpl.html"></template>
 
 <script>
 export default {
@@ -66,7 +27,7 @@ export default {
       let vm = this
       this.$http.get(this.api).then(function (response) {
         let data = response.data.data
-        console.log(data.children)
+        // console.log(data.children)
         vm.posts = data.children.slice()
         this.loading = true
       }, function (error) {
@@ -75,8 +36,7 @@ export default {
       })
     },
     readMore: function (item) {
-      this.kinotekaItem = Object.assign({}, item)
-      this.isShowForm = true
+      console.log(item)
     },
     findFilmById: function (filmId) {
       let vm = this
