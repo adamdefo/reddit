@@ -1,13 +1,13 @@
-<template src="./Reddit.tmpl.html"></template>
+<template src="./Julia.tmpl.html"></template>
 
 <script>
 export default {
-  name: 'Reddit',
+  name: 'Julia',
   data: function () {
     return {
       api: 'http://www.reddit.com/r/new.json?limit=50',
       apiCount: 'http://www.reddit.com/r/new.json?count',
-      title: 'Reddit Posts',
+      title: 'Fractal Julia',
       loading: false,
       btnAdd: {
         txt: 'Добавить фильм'

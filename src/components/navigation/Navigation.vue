@@ -25,8 +25,12 @@ export default {
     return {
       navLinks: [
         {
-          title: 'Главная',
+          title: 'Reddit',
           href: '/'
+        },
+        {
+          title: 'Julia',
+          href: '/julia'
         }
       ]
     }
